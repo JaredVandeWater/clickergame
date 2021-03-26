@@ -12,12 +12,108 @@
 </head>
 
 <body>
-    <header class="container-fluid bg-primary">
-        <div class="row">
-            <h1 class=text-center>Title</h1>
+
+
+    <header class="container-fluid bg-primary sticky-top">
+        <div class="row justify-content-center py-3">
+            <h1 class="text-white">Title</h1>
         </div>
     </header>
 
+
+    <main class="container-fluid bg-secondary ">
+
+
+        <div class="row flex-column my-min-h">
+
+            <div class="col d-flex align-items-center justify-content-center">
+
+                <h1>TOTAL: <span id=on-screen-total>0</span></h1>
+
+            </div>
+
+            <div class="col d-flex align-items-center justify-content-center">
+
+                <button onclick="clickAdd()" id="main-resource" class="btn btn-primary ">
+                    <h4>Click Me</h4>
+                </button>
+
+            </div>
+
+        </div>
+
+        </div>
+
+
+
+
+        <div class="row py-4 text-center bg-info justify-content-center">
+            <h2>UPGRADES</h2>
+        </div>
+        <div class="row py4 bg-secondary">
+            <div class="col d-flex justify-content-center flex-column">
+
+                <h3 class="text-center">Click Value</h3>
+                <div class="row flex-column">
+                    <div class="col d-flex justify-content-center">
+                        <p id="click-value">1</p>
+                    </div>
+                    <div class="col d-flex justify-content-center">
+                        <a onclick="upgrade('click-value')" class="btn btn-primary ">
+                            <h4>Upgrade</h4>
+                        </a>
+                        <p class=" p-3 my-auto">Cost: <span id=click-upgrade-cost>10</span></p>
+                    </div>
+                    <div class="col d-flex justify-content-center">
+
+                        <h5>Cost: 10</h5>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col d-flex justify-content-center py-3 flex-column">
+
+                <h3 class="text-center">Type 2</h3>
+                <div class="row p-5">
+                    <div class="col">
+                        <p>TEST</p>
+                    </div>
+                    <div class="col">
+                        <p>TEST</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col d-flex justify-content-center py-3 flex-column">
+
+                <h3 class="text-center">Type 3</h3>
+                <div class="row p-5">
+                    <div class="col">
+                        <p>TEST</p>
+                    </div>
+                    <div class="col">
+                        <p>TEST</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </main>
+
+
+
+    <footer class="container-fluid fixed-bottom">
+
+        <div class="row py-1 text-center bg-info justify-content-center">
+            <h2>footer</h2>
+
+
+    </footer>
+
+
+
+    <script src="app.js"></script>
 </body>
 
 </html>

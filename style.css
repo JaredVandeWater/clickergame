@@ -1,0 +1,15 @@
+
+body{
+    flex-direction: column;
+    display: flex;
+    min-height: 100vh;
+}
+
+
+main{
+    flex-grow: 1;
+}
+
+.my-min-h{
+    min-height: 40vh;
+}
