@@ -1,4 +1,6 @@
 
+
+
 body{
     flex-direction: column;
     display: flex;
@@ -11,5 +13,14 @@ main{
 }
 
 .my-min-h{
-    min-height: 40vh;
+    min-height: 20vh;
+}
+
+input{
+    outline: none;
+    border: none;
+}
+
+img{
+
 }
