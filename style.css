@@ -1,5 +1,7 @@
 
-
+.bg-primary {
+    background-color: black !important;
+}
 
 body{
     flex-direction: column;
@@ -23,4 +25,12 @@ input{
 
 img{
 
+}
+
+.my-w{
+    width: 18%;
+}
+
+.my-abs{
+    bottom: -1rem;
 }
