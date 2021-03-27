@@ -1,3 +1,6 @@
+h2{
+    margin: 0;
+}
 
 .bg-primary {
     background-color: black !important;
@@ -28,9 +31,22 @@ img{
 }
 
 .my-w{
-    width: 18%;
+    width: 12%;
 }
 
-.my-abs{
-    bottom: -1rem;
+
+p,h1,h2,h3,h4,h5{
+    font-family: 'EB Garamond', serif;
+}
+
+.my-red-text{
+    color: rgb(185, 0, 0);
+}
+
+.my-gray-text{
+    color: rgb(122, 122, 122);
+}
+
+.my-b-border{
+    border-bottom: 4px dotted blue;
 }

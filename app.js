@@ -25,7 +25,7 @@ let normalEnemies = [
 
 let bosses = [
     {
-        name: "Iudex_Gundyr",
+        name: "Iudex Gundyr",
         img: "iudex_gundry_trophy.png"
     },
     {
@@ -53,7 +53,7 @@ let bosses = [
         img: "old_demon_king_trophy.png"
     },
     {
-        name: "Pontiff_Sulyvahn",
+        name: "Pontiff Sulyvahn",
         img: "pontiff_sulyvahn_trophy.png"
     },
     {

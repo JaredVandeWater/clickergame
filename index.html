@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
         integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap" rel="stylesheet">
     <title>Clicker</title>
 </head>
 
@@ -15,18 +17,18 @@
 
     <!-- NOTE header is simply the navbar -->
     <header class="container-fluid bg-primary sticky-top">
-        <div class="row justify-content-center py-3 flex-column">
-            <div class="img-fluid col d-flex justify-content-center">
-                <img src="./assets/ds.jfif" alt="Dark Souls">
+        <div class="row justify-content-center pt-1 mb-4 pb-1 flex-column">
+            <div class=" col d-flex justify-content-center ">
+                <img src="./assets/ds.png" alt="Dark Souls">
             </div>
-            <div class="col d-flex justify-content-center position-relative">
-                <img class="img-fluid my-w position-absolute my-abs" src="./assets/The-Clicker.png" alt="">
+            <div class="col d-flex justify-content-center position-relative ">
+                <img class="my-w position-absolute my-abs" src="./assets/The-Clicker.png" alt="">
             </div>
         </div>
     </header>
 
     <!-- //NOTE main container -->
-    <main class="container-fluid bg-secondary ">
+    <main class="container-fluid bg-primary ">
         <!-- NOTE this is the top part with the button -->
         <div class="row flex-column my-min-h">
 
@@ -44,15 +46,15 @@
 
 
         <!-- NOTE the upgrades bar -->
-        <div class="row text-center bg-info justify-content-center">
-            <h2>UPGRADES</h2>
+        <div class="my-b-border row text-center bg-primary justify-content-center">
+            <h2> UPGRADES </h2>
         </div>
 
 
-        <div class="row py4 bg-secondary">
+        <div class="row py4 bg-primary">
 
             <!-- NOTE col 1 contains the enemy upgrade -->
-            <div class="col d-flex justify-content-center flex-column">
+            <div class="col d-flex justify-content-center flex-column my-gray-text">
                 <h5 id="enemy-name" class="text-center">Hollow</h5>
                 <img id="enemy-img" class="img-fluid w-50 mx-auto" src="" alt="Normal Enemy Image">
                 <h5 class="text-center"><u>Soul Value</u></h5>
@@ -90,7 +92,7 @@
 
 
             <!-- NOTE col3 contains upgrades for BOSSES -->
-            <div class="col d-flex justify-content-center flex-column">
+            <div class="col d-flex justify-content-center flex-column my-red-text">
                 <h5 id="boss-name" class="text-center">boss</h5>
                 <img id="boss-img" class="img-fluid w-50 mx-auto" src="" alt="Boss Image">
                 <h5 class="text-center"><u>Soul Value</u></h5>
@@ -114,14 +116,6 @@
     </main>
 
 
-
-    <footer class="container-fluid fixed-bottom">
-
-        <div class="row text-center bg-info justify-content-center">
-            <p>Made by Jared</p>
-
-
-    </footer>
 
 
 
