@@ -6,6 +6,7 @@ h2{
     background-color: black !important;
 }
 
+
 body{
     flex-direction: column;
     display: flex;
@@ -15,6 +16,7 @@ body{
 
 main{
     flex-grow: 1;
+
 }
 
 .my-min-h{
@@ -47,6 +49,22 @@ p,h1,h2,h3,h4,h5{
     color: rgb(122, 122, 122);
 }
 
+.my-green-text{
+    color: rgb(5, 143, 0);
+}
+
 .my-b-border{
-    border-bottom: 4px dotted blue;
+    border-bottom: 2px dotted rgba(255, 0, 0, 0.342);
+}
+
+.my-bg-img{
+    background-image: url(./assets/MENU_AllocationOfEstus.PNG);
+    background-repeat: repeat-y;
+    background-size:contain;
+    background-color: rgb(37, 37, 37)
+}
+
+.my-grad{
+    background: rgb(0,0,0);
+    background: radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 45%, rgba(0,0,0,1) 55%, rgba(91,78,57,1) 100%);
 }

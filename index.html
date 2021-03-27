@@ -13,22 +13,19 @@
     <title>Clicker</title>
 </head>
 
-<body>
+<body class="my-bg-img ">
 
     <!-- NOTE header is simply the navbar -->
-    <header class="container-fluid bg-primary sticky-top">
-        <div class="row justify-content-center pt-1 mb-4 pb-1 flex-column">
-            <div class=" col d-flex justify-content-center ">
-                <img src="./assets/ds.png" alt="Dark Souls">
-            </div>
-            <div class="col d-flex justify-content-center position-relative ">
-                <img class="my-w position-absolute my-abs" src="./assets/The-Clicker.png" alt="">
+    <header class="container-fluid sticky-top">
+        <div class="row justify-content-center pt-1 mb-4 pb-1 my-grad">
+            <div class=" col d-flex justify-content-center align-items-center flex-column">
+                <img class="w-50" src="./assets/ds.png" alt="Dark Souls">
+                <img class="my-w" src="./assets/The-Clicker.png" alt="">
             </div>
         </div>
     </header>
-
     <!-- //NOTE main container -->
-    <main class="container-fluid bg-primary ">
+    <main class="container-fluid ">
         <!-- NOTE this is the top part with the button -->
         <div class="row flex-column my-min-h">
 
@@ -46,12 +43,12 @@
 
 
         <!-- NOTE the upgrades bar -->
-        <div class="my-b-border row text-center bg-primary justify-content-center">
+        <div class="my-b-border row text-center  justify-content-center">
             <h2> UPGRADES </h2>
         </div>
 
 
-        <div class="row py4 bg-primary">
+        <div class="row py4 ">
 
             <!-- NOTE col 1 contains the enemy upgrade -->
             <div class="col d-flex justify-content-center flex-column my-gray-text">
@@ -73,19 +70,31 @@
 
 
             <!-- NOTE col2 contains upgrade for weapons -->
-            <div class="col d-flex justify-content-center py-3 flex-column">
-                <h3 class="text-center"># Clicks Every 3 Seconds</h3>
+            <div class="col d-flex justify-content-center flex-column my-green-text">
+                <div class="row">
+                    <div class="col">
+                        <p>Moonlight Greatsword</p>
+
+                    </div>
+                    <div class="col">fff</div>
+                </div>
+                <div class="row">
+                    <div class="col">ggg</div>
+                    <div class="col">hhh</div>
+                </div>
+
+                <h5 id="boss-name" class="text-center">boss</h5>
+                <img id="boss-img" class="img-fluid w-50 mx-auto" src="" alt="Boss Image">
+                <h5 class="text-center"><u>Soul Value</u></h5>
                 <div class="row flex-column">
                     <div class="col d-flex justify-content-center">
-                        <p id="click-value">1</p>
+                        <p><span id="auto-value">0</span> Per 3 Seconds</p>
                     </div>
                     <div class="col d-flex justify-content-center">
-                        <a onclick="upgrade('click-value')" class="btn btn-primary ">
+                        <a onclick="upgrade('auto-click')" class="btn btn-primary ">
                             <h4>Upgrade</h4>
                         </a>
-                        <p class=" p-3 my-auto">Cost: <span id=click-upgrade-cost>10</span></p>
-                    </div>
-                    <div class="col d-flex justify-content-center">
+                        <p class="p-3 my-auto">Cost: <span id=auto-upgrade-cost>10</span></p>
                     </div>
                 </div>
             </div>
@@ -109,9 +118,6 @@
                 </div>
             </div>
         </div>
-
-
-        <div class="row my-min-h"> </div>
 
     </main>
 
