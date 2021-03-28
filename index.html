@@ -59,10 +59,10 @@
                     <div class="col d-flex justify-content-center">
                         <p><span id="click-value">1</span> Per Click</p>
                     </div>
-                    <div class="col d-flex justify-content-center">
-                        <a onclick="upgrade('click-value')" class="btn btn-primary ">
-                            <h4>Upgrade</h4>
-                        </a>
+                    <div class="col d-flex justify-content-center align-items-center">
+                        <button onclick="upgrade('click-value')" class="my-btn">
+                            <h4>DEFEAT</h4>
+                        </button>
                         <p class=" p-3 my-auto">Cost: <span id=click-upgrade-cost>10</span></p>
                     </div>
                 </div>
@@ -76,31 +76,31 @@
                         <p>Moonlight Greatsword</p>
                         <img class="w-25" src="./assets/moonlight_greatsword-icon.png" alt="Moonlight Greatsword">
                         <p>Soul Value Per Click ×<span id="soul-value-mult">2</span>.</p>
-                        <a onclick="purchase('moonlight-greatsword')" class="btn btn-primary ">
-                            <h4>Equip</h4>
+                        <button onclick="purchase('moonlight-greatsword')" class="my-btn">
+                            <h4>EQUIP</h4>
 
-                        </a>
+                        </button>
                         <p>Cost: 10</p>
                     </div>
                     <div class="col d-flex align-items-center flex-column">
                         <p>Twinkling Titanite</p>
                         <img class="w-25" src="./assets/twinkling_titanite.png" alt="Twinkling Titanite">
                         <p>Upgrade Moonlight Greatsword Multiplier.</p>
-                        <a onclick="purchase('titanite')" class="btn btn-primary ">
-                            <h4>Forge</h4>
-                        </a>
+                        <button onclick="purchase('titanite')" class="my-btn">
+                            <h4>FORGE</h4>
+                        </button>
                         <p>Cost: 10</p>
 
                     </div>
                 </div>
                 <div class="row">
                     <div class="col d-flex align-items-center flex-column">
-                        <p>Bonfire</p>
-                        <img class="w-25" src="./assets/bonfire.png" alt="Bonfire">
+                        <p>White Sign Soapstone</p>
+                        <img class="w-25" src="./assets/WhiteStone.png" alt="soapstone">
                         <p>Reduce Boss Cost by 5%.</p>
-                        <a onclick="purchase('bonfire')" class="btn btn-primary ">
-                            <h4>Rest</h4>
-                        </a>
+                        <button onclick="purchase('bonfire')" class="my-btn">
+                            <h4>SUMMON</h4>
+                        </button>
                         <p>Cost:10</p>
 
                     </div>
@@ -108,8 +108,8 @@
                         <p>Ember</p>
                         <img class="w-25" src="./assets/ember.png" alt="Ember">
                         <p>Decrease boss soul wait time.<span id="soul-value-mult">2</span> </p>
-                        <a onclick="purchase('moonlight-greatsword')" class="btn btn-primary ">
-                            <h4>Equip</h4>
+                        <a onclick="purchase('ember')" class="my-btn">
+                            <h4>BURN</h4>
                         </a>
 
                     </div>
@@ -129,9 +129,9 @@
                         <p><span id="auto-value">0</span> Per 3 Seconds</p>
                     </div>
                     <div class="col d-flex justify-content-center">
-                        <a onclick="upgrade('auto-click')" class="btn btn-primary ">
-                            <h4>Upgrade</h4>
-                        </a>
+                        <button onclick="upgrade('auto-click')" class="my-btn">
+                            <h4>VANQUISH</h4>
+                        </button>
                         <p class="p-3 my-auto">Cost: <span id=auto-upgrade-cost>10</span></p>
                     </div>
                 </div>
