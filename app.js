@@ -30,7 +30,11 @@ let seconds = 10
 let emberCost = 10
 let emberInfo = document.getElementById('clear-ember')
 
-let normalEnemies = [
+let normalEnemies2 = [
+    {
+        name: "Grave Warden",
+        img: "grave_warden-new.jpg"
+    },
     {
         name: "Hollow",
         img: "hollow.jpg"
@@ -44,9 +48,130 @@ let normalEnemies = [
         img: "starved_hound_(no_arrow)-new.jpg"
     },
     {
+        name: "Ravenous Crystal Lizard",
+        img: "ravenous_crystal_lizard-new.jpg"
+    },
+
+    {
         name: "Winged Knight",
         img: "winged_knight-new.jpg"
     },
+    {
+        name: "Sword Master",
+        img: "sword_master-new.jpg"
+    },
+    {
+        name: "Pus of Man",
+        img: "pus_of_man-new.jpg"
+    },
+    {
+        name: "Caged Hollow",
+        img: "caged-hollow.jpg"
+    },
+    {
+        name: "Worker Hollow",
+        img: "worker_(lantern)-new.jpg"
+    },
+    {
+        name: "Hollow Manservant",
+        img: "hollow-manservant.jpg"
+    },
+    {
+        name: "Mimic",
+        img: "mimic-new.jpg"
+    },
+    {
+        name: "Evangelist",
+        img: "evangelist.jpg"
+    },
+    {
+        name: "Hollow Soldier",
+        img: "hollow_solider_(sword)-new.jpg"
+    },
+    {
+        name: "Root Skeleton",
+        img: "rootskeleton.jpg"
+    },
+    {
+        name: "Cathedral Grave Warden",
+        img: "cathedral_grave_warden-new.jpg"
+    },
+    {
+        name: "Poisonhorn Bug",
+        img: "PoisonhornBug.jpg"
+    },
+    {
+        name: "Madwoman",
+        img: "madwoman.jpg"
+    },
+    {
+        name: "Devout Hollow",
+        img: "devout_hollow.jpg"
+    },
+    {
+        name: "Demon",
+        img: "demon.jpg"
+    },
+    {
+        name: "Reanimated Corpse",
+        img: "reanimated_corpse.jpg"
+    },
+    {
+        name: "Lesser Crab",
+        img: "LesserCrab.jpg"
+    },
+    {
+        name: "Giant Crab",
+        img: "giantcrab.png"
+    },
+    {
+        name: "Infested Corpse",
+        img: "infestedcorpse.jpg"
+    },
+    {
+        name: "Lycanthrope",
+        img: "Lycanthrope.jpg"
+    },
+    {
+        name: "Dark Wraith",
+        img: "darkwraith-new.jpg"
+    },
+    {
+        name: "Corvian",
+        img: "Corvian.jpg"
+    },
+    {
+        name: "Corvian Story Teller",
+        img: "Corvianstoryteller.jpg"
+    },
+    {
+        name: "Boreal Outrider Knight",
+        img: "BorealOutriderKnight.jpg"
+    },
+    {
+        name: "Lothric Wyvern",
+        img: "lothric_wyvern-new.jpg"
+    },
+    {
+        name: "All Enemies Defeated",
+        img: "finalenemypic.png"
+    }
+]
+
+let normalEnemies = [
+    {
+        name: "Grave Warden",
+        img: "grave_warden-new.jpg"
+    },
+    {
+        name: "Hollow",
+        img: "hollow.jpg"
+    },
+    {
+        name: "Hollow Assassin",
+        img: "hollow_assassin-new.jpg"
+    },
+
     {
         name: "All Enemies Defeated",
         img: "finalenemypic.png"
@@ -223,6 +348,7 @@ function upgrade(id) {
             currentEnemy += 1
             clickValueUpgradeCost = clickValueUpgradeCost * 2
             drawEnemy()
+            drawClickValue()
         }
         if (currentEnemy === normalEnemies.length - 1) {
             drawEnemy()
@@ -268,9 +394,14 @@ function purchase(id) {
 
             total = total - gemCost
             gemCost = gemCost * 2
-
+            drawClickValue()
             drawGem()
-            drawEnemy()
+            if (currentEnemy !== normalEnemies.length - 1) {
+                drawEnemy()
+                drawClickValue()
+            }
+
+
         }
         if (total >= gemCost && currentGem >= gems.length - 1) {
             currentClickValue = currentClickValue * gemMult
@@ -341,11 +472,14 @@ function drawTotal() {
 }
 
 function drawEnemy() {
-    document.getElementById("click-value").innerText = currentClickValue.toString()
     document.getElementById("click-upgrade-cost").innerText = clickValueUpgradeCost.toString()
     document.getElementById("enemy-name").innerText = normalEnemies[currentEnemy].name
     document.getElementById("enemy-img").src = `./assets/${normalEnemies[currentEnemy].img}`
 }
+function drawClickValue() {
+    document.getElementById("click-value").innerText = currentClickValue.toString()
+}
+
 function drawBoss() {
     document.getElementById("auto-value").innerText = currentAutoValue.toString()
     document.getElementById("auto-upgrade-cost").innerText = autoUpgradeCost.toString()
