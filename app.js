@@ -1,4 +1,4 @@
-let total = 99999990
+let total = 0
 let currentClickValue = 1
 let currentAutoValue = 0
 let clickValueUpgradeCost = 10
@@ -137,6 +137,20 @@ function upgrade(id) {
     drawTotal()
     drawBoss()
 }
+
+function purchase(id) {
+    if (id === "moonlight-greatsword") {
+
+    }
+    if (id === "titanite") {
+
+    }
+}
+
+
+
+
+
 
 startInterval()
 

@@ -16,10 +16,10 @@
 <body class="my-bg-img ">
 
     <!-- NOTE header is simply the navbar -->
-    <header class="container-fluid sticky-top">
-        <div class="row justify-content-center pt-1 mb-4 pb-1 my-grad">
+    <header class="container-fluid">
+        <div class="row justify-content-center my-grad">
             <div class=" col d-flex justify-content-center align-items-center flex-column">
-                <img class="w-50" src="./assets/ds.png" alt="Dark Souls">
+                <img class="w-25" src="./assets/ds.png" alt="Dark Souls">
                 <img class="my-w" src="./assets/The-Clicker.png" alt="">
             </div>
         </div>
@@ -29,7 +29,7 @@
         <!-- NOTE this is the top part with the button -->
         <div class="row flex-column my-min-h">
 
-            <div class="col d-flex align-items-center justify-content-center">
+            <div class="col d-flex align-items-center justify-content-center soul-text">
                 <h1>Souls: <span id=on-screen-total>0</span></h1>
             </div>
 
@@ -70,33 +70,52 @@
 
 
             <!-- NOTE col2 contains upgrade for weapons -->
-            <div class="col d-flex justify-content-center flex-column my-green-text">
+            <div class="col-5 d-flex justify-content-center flex-column my-green-text">
                 <div class="row">
-                    <div class="col">
+                    <div class="col d-flex align-items-center flex-column">
                         <p>Moonlight Greatsword</p>
+                        <img class="w-25" src="./assets/moonlight_greatsword-icon.png" alt="Moonlight Greatsword">
+                        <p>Soul Value Per Click ×<span id="soul-value-mult">2</span>.</p>
+                        <a onclick="purchase('moonlight-greatsword')" class="btn btn-primary ">
+                            <h4>Equip</h4>
+
+                        </a>
+                        <p>Cost: 10</p>
+                    </div>
+                    <div class="col d-flex align-items-center flex-column">
+                        <p>Twinkling Titanite</p>
+                        <img class="w-25" src="./assets/twinkling_titanite.png" alt="Twinkling Titanite">
+                        <p>Upgrade Moonlight Greatsword Multiplier.</p>
+                        <a onclick="purchase('titanite')" class="btn btn-primary ">
+                            <h4>Forge</h4>
+                        </a>
+                        <p>Cost: 10</p>
 
                     </div>
-                    <div class="col">fff</div>
                 </div>
                 <div class="row">
-                    <div class="col">ggg</div>
-                    <div class="col">hhh</div>
+                    <div class="col d-flex align-items-center flex-column">
+                        <p>Bonfire</p>
+                        <img class="w-25" src="./assets/bonfire.png" alt="Bonfire">
+                        <p>Reduce Boss Cost by 5%.</p>
+                        <a onclick="purchase('bonfire')" class="btn btn-primary ">
+                            <h4>Rest</h4>
+                        </a>
+                        <p>Cost:10</p>
+
+                    </div>
+                    <div class="col d-flex align-items-center flex-column">
+                        <p>Ember</p>
+                        <img class="w-25" src="./assets/ember.png" alt="Ember">
+                        <p>Decrease boss soul wait time.<span id="soul-value-mult">2</span> </p>
+                        <a onclick="purchase('moonlight-greatsword')" class="btn btn-primary ">
+                            <h4>Equip</h4>
+                        </a>
+
+                    </div>
                 </div>
 
-                <h5 id="boss-name" class="text-center">boss</h5>
-                <img id="boss-img" class="img-fluid w-50 mx-auto" src="" alt="Boss Image">
-                <h5 class="text-center"><u>Soul Value</u></h5>
-                <div class="row flex-column">
-                    <div class="col d-flex justify-content-center">
-                        <p><span id="auto-value">0</span> Per 3 Seconds</p>
-                    </div>
-                    <div class="col d-flex justify-content-center">
-                        <a onclick="upgrade('auto-click')" class="btn btn-primary ">
-                            <h4>Upgrade</h4>
-                        </a>
-                        <p class="p-3 my-auto">Cost: <span id=auto-upgrade-cost>10</span></p>
-                    </div>
-                </div>
+
             </div>
 
 

@@ -68,3 +68,10 @@ p,h1,h2,h3,h4,h5{
     background: rgb(0,0,0);
     background: radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 45%, rgba(0,0,0,1) 55%, rgba(91,78,57,1) 100%);
 }
+
+.soul-text{
+
+color: rgba(255, 255, 255, 0.712);
+text-shadow: 0 0 15px rgba(255, 255, 255, 0.5), 0 0 10px rgba(113, 246, 255, 0.507);
+
+}
