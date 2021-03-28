@@ -9,8 +9,8 @@ let currentEnemy = 0
 
 let greatswordCost = 10
 let greatswordMult = 2
-let previousClickValue = 0
 
+let currentGem = 0
 
 let titaniteCost = 10
 
@@ -121,7 +121,69 @@ let bosses = [
 
 ]
 
+let gems = [
+    {
+        name: 'Simple Gem',
+        img: 'simple_gem-icon.png'
+    },
+    {
+        name: 'Sharp Gem',
+        img: 'sharp_gem-icon.png'
+    },
+    {
+        name: 'Refined Gem',
+        img: 'refined_gem-icon.png'
+    },
+    {
+        name: 'Raw Gem',
+        img: 'raw_gem-icon.png'
+    },
+    {
+        name: 'Poison Gem',
+        img: 'poison_gem-icon.png'
+    },
+    {
+        name: 'Lightning Gem',
+        img: 'lightning_gem-icon.png'
+    },
+    {
+        name: 'Heavy Gem',
+        img: 'heavy_gem-icon.png'
+    },
+    {
+        name: 'Lightning Gem',
+        img: 'lightning_gem-icon.png'
+    },
+    {
+        name: 'Crystal Gem',
+        img: 'crystal_gem-icon.png'
+    },
+    {
+        name: 'Dark Gem',
+        img: 'dark_gem-icon.png'
+    },
+    {
+        name: 'Deep Gem',
+        img: 'deep_gem-icon.png'
+    },
+    {
+        name: 'Fire Gem',
+        img: 'fire_gem-icon.png'
+    },
+    {
+        name: 'Blood Gem',
+        img: 'blood_gem-icon.png'
+    },
+    {
+        name: 'Blessed Gem',
+        img: 'blessed_gem-icon.png'
+    },
+    {
+        name: 'Chaos Gem',
+        img: 'chaos_gem-icon.png'
+    }
 
+]
 
 
 function clickAdd() {
@@ -129,8 +191,6 @@ function clickAdd() {
     drawTotal()
 
 }
-
-
 
 function AutoAdd() {
     total += currentAutoValue
@@ -152,8 +212,11 @@ function upgrade(id) {
         if (total >= autoUpgradeCost && currentBoss < (bosses.length)) {
             if (currentAutoValue < 1) {
                 currentAutoValue = 1
+                stopInterval()
+                startInterval()
 
             }
+
             currentBoss += 1
             total = total - autoUpgradeCost
             currentAutoValue = currentAutoValue * 3
@@ -176,8 +239,7 @@ function purchase(id) {
     if (id === "moonlight-greatsword") {
 
         if (total >= greatswordCost) {
-
-            previousClickValue = currentClickValue
+            currentGem += 1
 
             currentClickValue = currentClickValue * greatswordMult
 
@@ -209,7 +271,10 @@ function purchase(id) {
         if (total >= emberCost && seconds > 1) {
             seconds -= 1
             total = total - emberCost
+            emberCost = emberCost * 2
             drawEmber()
+            stopInterval()
+            startInterval()
 
         }
     }
@@ -223,10 +288,14 @@ function purchase(id) {
 
 // NOTE YO you need to fix the ember, it doesnt do interval stuff
 
-startInterval()
 
+let myInterval
 function startInterval() {
-    setInterval(AutoAdd, (seconds * 1000));
+    myInterval = setInterval(AutoAdd, (seconds * 1000));
+}
+
+function stopInterval() {
+    clearInterval(myInterval)
 }
 
 function drawTotal() {
@@ -247,8 +316,9 @@ function drawBoss() {
 }
 
 function drawGreatsword() {
-    document.getElementById("equip-button").innerText = "REPAIR"
     document.getElementById("current-greatsword-cost").innerText = greatswordCost.toString()
+    document.getElementById("gem-img").src = `./assets/${gems[currentGem].img}`
+    document.getElementById("current-gem").innerText = gems[currentGem].name
 }
 
 function drawTitanite() {
@@ -270,3 +340,4 @@ function clearBoss() {
 drawBoss()
 drawEnemy()
 drawTotal()
+drawGreatsword()
