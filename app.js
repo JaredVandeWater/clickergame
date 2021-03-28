@@ -101,9 +101,15 @@ let bosses = [
     {
         name: "The Nameless King",
         img: "the_nameless_king_trophy.png"
+    },
+    {
+        name: "Soul of Cinder",
+        img: "SoulOfCinder1.jpg"
+    },
+    {
+        name: "Victory Achieved",
+        img: "finalbosspic.jpg"
     }
-
-
 
 ]
 
@@ -126,7 +132,7 @@ function AutoAdd() {
 function upgrade(id) {
 
     if (id === "click-value") {
-        if (total >= clickValueUpgradeCost) {
+        if (total >= clickValueUpgradeCost && currentEnemy < (normalEnemies.length - 1)) {
 
             total = total - clickValueUpgradeCost
             currentClickValue += 1
@@ -135,7 +141,7 @@ function upgrade(id) {
         }
     }
     if (id === "auto-click") {
-        if (total >= autoUpgradeCost) {
+        if (total >= autoUpgradeCost && currentBoss < (bosses.length)) {
             if (currentAutoValue < 1) {
                 currentAutoValue = 1
 
@@ -144,12 +150,17 @@ function upgrade(id) {
             total = total - autoUpgradeCost
             currentAutoValue = currentAutoValue * 3
             autoUpgradeCost = autoUpgradeCost * 3
+            drawBoss()
+        }
+        if (total >= autoUpgradeCost && currentBoss >= 18) {
+            currentAutoValue = 1000000000
+            drawBoss()
+            clearBoss()
         }
     }
 
     drawEnemy()
     drawTotal()
-    drawBoss()
 }
 
 function purchase(id) {
@@ -219,6 +230,12 @@ function drawTitanite() {
     document.getElementById("soul-value-mult").innerText = greatswordMult.toString()
 }
 
+
+let el = document.getElementById('clearboss');
+
+function clearBoss() {
+    el.remove()
+}
 
 drawBoss()
 drawEnemy()

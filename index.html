@@ -57,13 +57,13 @@
                 <h5 class="text-center"><u>Soul Value</u></h5>
                 <div class="row flex-column">
                     <div class="col d-flex justify-content-center">
-                        <p><span id="click-value">1</span> Per Click</p>
+                        <h5><span id="click-value">1</span> Per Click</h5>
                     </div>
                     <div class="col d-flex justify-content-center align-items-center">
                         <button id="defeat" onclick="upgrade('click-value')" class="my-btn">
-                            <h4>DEFEAT</h4>
+                            <h3>DEFEAT</h3>
                         </button>
-                        <p class=" p-3 my-auto">Cost: <span id=click-upgrade-cost>10</span></p>
+                        <h5 class=" p-3 my-auto">Cost: <span id=click-upgrade-cost>10</span></h5>
                     </div>
                 </div>
             </div>
@@ -73,48 +73,48 @@
             <div class="col-5 d-flex justify-content-center flex-column my-green-text">
                 <div class="row">
                     <div class="col d-flex align-items-center flex-column p-5 text-center mt-auto">
-                        <p><u>Moonlight Greatsword</u></p>
+                        <h5><u>Moonlight Greatsword</u></h5>
                         <img class="w-50 py-3" src="./assets/moonlight_greatsword-icon.png" alt="Moonlight Greatsword">
-                        <p>Soul Value Per Click ×<span id="soul-value-mult">2</span>.</p>
+                        <h5>Soul Value Per Click ×<span id="soul-value-mult">2</span>.</h5>
                         <button onclick="purchase('moonlight-greatsword')" class="my-btn">
                             <h4 id="equip-button">EQUIP</h4>
                         </button>
-                        <p>Cost: <span id="current-greatsword-cost">10</span></p>
+                        <h5>Cost: <span id="current-greatsword-cost">10</span></h5>
                     </div>
 
 
                     <div class="col d-flex align-items-center flex-column p-5 text-center mt-auto">
-                        <p><u>Twinkling Titanite</u></p>
+                        <h5><u>Twinkling Titanite</u></h5>
                         <img class="w-50 py-3" src="./assets/twinkling_titanite.png" alt="Twinkling Titanite">
-                        <p>Upgrade Moonlight Greatsword Multiplier.</p>
+                        <h5>Upgrade Moonlight Greatsword Multiplier.</h5>
                         <button onclick="purchase('titanite')" class="my-btn">
-                            <h4>FORGE</h4>
+                            <h3>FORGE</h3>
                         </button>
-                        <p>Cost: <span id="current-titanite-cost">10</span></p>
+                        <h5>Cost: <span id="current-titanite-cost">10</span></h5>
                     </div>
 
 
                 </div>
                 <div class="row">
                     <div class="col d-flex align-items-center flex-column p-5 text-center mt-auto">
-                        <p><u>White Sign Soapstone</u></p>
+                        <h5><u>White Sign Soapstone</u></h5>
                         <img class="w-50 py-3" src="./assets/WhiteStone.png" alt="soapstone">
-                        <p>Reduce Boss Cost by 5%.</p>
+                        <h5>Reduce Boss Cost by 5%.</h5>
                         <button onclick="purchase('bonfire')" class="my-btn">
-                            <h4>SUMMON</h4>
+                            <h3>SUMMON</h3>
                         </button>
-                        <p>Cost: <span id="current-soapstone-cost">10</span></p>
+                        <h5>Cost: <span id="current-soapstone-cost">10</span></h5>
 
 
                     </div>
                     <div class="col d-flex align-items-center flex-column p-5 text-center mt-auto">
-                        <p><u>Ember</u></p>
+                        <h5><u>Ember</u></h5>
                         <img class="w-50 py-3" src="./assets/ember.png" alt="Ember">
-                        <p>Decrease boss soul wait time.<span id="soul-value-mult">2</span> </p>
+                        <h5>Decrease boss soul wait time.</h5>
                         <button onclick="purchase('ember')" class="my-btn">
-                            <h4>BURN</h4>
+                            <h3>BURN</h3>
                         </button>
-                        <p>Cost: <span id="current-ember-cost">10</span></p>
+                        <h5>Cost: <span id="current-ember-cost">10</span></h5>
                     </div>
                 </div>
             </div>
@@ -127,13 +127,13 @@
                 <h5 class="text-center"><u>Soul Value</u></h5>
                 <div class="row flex-column">
                     <div class="col d-flex justify-content-center">
-                        <p><span id="auto-value">0</span> Per 3 Seconds</p>
+                        <h5><span id="auto-value">0</span> Per 3 Seconds</h5>
                     </div>
-                    <div class="col d-flex justify-content-center align-items-center">
+                    <div id="clearboss" class="col d-flex justify-content-center align-items-center">
                         <button onclick="upgrade('auto-click')" class="my-btn">
-                            <h4>VANQUISH</h4>
+                            <h3>VANQUISH</h3>
                         </button>
-                        <p class="p-3 my-auto">Cost: <span id=auto-upgrade-cost>10</span></p>
+                        <h5 class="p-3 my-auto">Cost: <span id=auto-upgrade-cost>10</span></h5>
                     </div>
                 </div>
             </div>
