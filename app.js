@@ -5,17 +5,18 @@ let clickValueUpgradeCost = 10
 let autoUpgradeCost = 10
 let currentBoss = 0
 let currentEnemy = 0
-
+let enemyInfo = document.getElementById('clear-enemy')
 
 let gemCost = 10
 let gemMult = 2
 
 let currentGem = 0
-let gemRemoved = false
 let gemInfo = document.getElementById('cleargem')
 
 
 let titaniteCost = 10
+let titaniteInfo = document.getElementById('cleartitanite')
+let usedAllTitanite = false
 
 let soapCost = 10
 let usedSoap = false
@@ -27,7 +28,7 @@ let bossInfo = document.getElementById('clearboss')
 
 let seconds = 10
 let emberCost = 10
-
+let emberInfo = document.getElementById('clear-ember')
 
 let normalEnemies = [
     {
@@ -45,7 +46,12 @@ let normalEnemies = [
     {
         name: "Winged Knight",
         img: "winged_knight-new.jpg"
-    }]
+    },
+    {
+        name: "All Enemies Defeated",
+        img: "finalenemypic.png"
+    }
+]
 
 let bosses = [
     {
@@ -216,6 +222,11 @@ function upgrade(id) {
             currentClickValue += 1
             currentEnemy += 1
             clickValueUpgradeCost = clickValueUpgradeCost * 2
+            drawEnemy()
+        }
+        if (currentEnemy === normalEnemies.length - 1) {
+            drawEnemy()
+            clearEnemy()
         }
     }
     if (id === "auto-click") {
@@ -243,7 +254,7 @@ function upgrade(id) {
         }
     }
 
-    drawEnemy()
+
     drawTotal()
 }
 
@@ -265,15 +276,23 @@ function purchase(id) {
             currentClickValue = currentClickValue * gemMult
             drawGem()
             clearGem()
+            clearTitanite()
         }
     }
     if (id === "titanite") {
         if (total >= titaniteCost) {
-            gemMult += 1
-            titaniteCost = titaniteCost * 2
-            drawTitanite()
-
+            if (gemMult < 9) {
+                gemMult += 1
+                titaniteCost = titaniteCost * 2
+                drawTitanite()
+            } else {
+                gemMult = 10
+                drawTitanite()
+                usedAllTitanite = true
+                clearTitanite()
+            }
         }
+
     }
     if (id === "soap") {
         if (total >= soapCost && bossRemoved == false && usedSoap == false) {
@@ -282,7 +301,6 @@ function purchase(id) {
             soapCost = soapCost * 2
             drawBoss()
             drawSoap()
-            drawTotal()
             usedSoap = true
 
         }
@@ -296,6 +314,9 @@ function purchase(id) {
             stopInterval()
             startInterval()
 
+        }
+        if (seconds === 1) {
+            clearEmber()
         }
     }
 
@@ -358,10 +379,15 @@ function clearSoap() {
     document.getElementById('soap-title').innerText = 'All Bosses Vanquished'
 }
 
-clearGem(){
+function clearTitanite() {
+    titaniteInfo.remove()
+    if (usedAllTitanite) {
 
+        document.getElementById('titanite-title').innerText = 'Fully Upgraded Gems'
+    } else {
+        document.getElementById('titanite-title').innerText = 'No Gems to Upgrade'
+    }
 }
-
 
 function clearBoss() {
     bossInfo.remove()
@@ -369,7 +395,14 @@ function clearBoss() {
 }
 function clearGem() {
     gemInfo.remove()
-    gemRemoved = true
+}
+function clearEmber() {
+    emberInfo.remove()
+    document.getElementById('ember-title').innerText = 'Fully Embered'
+}
+function clearEnemy() {
+
+    enemyInfo.remove()
 }
 
 drawBoss()

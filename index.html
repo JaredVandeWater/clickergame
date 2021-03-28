@@ -59,11 +59,13 @@
                     <div class="col d-flex justify-content-center">
                         <h5><span id="click-value">1</span> Per Click</h5>
                     </div>
-                    <div class="col d-flex justify-content-center align-items-center">
-                        <button id="defeat" onclick="upgrade('click-value')" class="my-btn">
-                            <h3>DEFEAT</h3>
-                        </button>
-                        <h5 class=" p-3 my-auto">Cost: <span id=click-upgrade-cost>10</span></h5>
+                    <div id='clear-enemy'>
+                        <div class="col d-flex justify-content-center align-items-center">
+                            <button id="defeat" onclick="upgrade('click-value')" class="my-btn">
+                                <h3>DEFEAT</h3>
+                            </button>
+                            <h5 class=" p-3 my-auto">Cost: <span id=click-upgrade-cost>10</span></h5>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -87,13 +89,16 @@
 
 
                     <div class="col d-flex align-items-center flex-column p-5 text-center mt-auto">
-                        <h5>Twinkling Titanite</h5>
+
+                        <h5 id="titanite-title">Twinkling Titanite</h5>
                         <img class="w-50 py-3" src="./assets/twinkling_titanite.png" alt="Twinkling Titanite">
-                        <h5>Upgrade Gem Multiplier</h5>
-                        <button onclick="purchase('titanite')" class="my-btn">
-                            <h3>FORGE</h3>
-                        </button>
-                        <h5>Cost: <span id="current-titanite-cost">10</span></h5>
+                        <div id="cleartitanite">
+                            <h5>Upgrade Gem Multiplier</h5>
+                            <button onclick="purchase('titanite')" class="my-btn">
+                                <h3>FORGE</h3>
+                            </button>
+                            <h5>Cost: <span id="current-titanite-cost">10</span></h5>
+                        </div>
                     </div>
 
 
@@ -113,13 +118,15 @@
 
                     </div>
                     <div class="col d-flex align-items-center flex-column p-5 text-center mt-auto">
-                        <h5>Ember</h5>
+                        <h5 id="ember-title">Ember</h5>
                         <img class="w-50 py-3" src="./assets/ember.png" alt="Ember">
-                        <h5>Decrease boss soul wait time</h5>
-                        <button onclick="purchase('ember')" class="my-btn">
-                            <h3>BURN</h3>
-                        </button>
-                        <h5>Cost: <span id="current-ember-cost">10</span></h5>
+                        <div id="clear-ember">
+                            <h5>Decrease boss soul seconds</h5>
+                            <button onclick="purchase('ember')" class="my-btn">
+                                <h3>BURN</h3>
+                            </button>
+                            <h5>Cost: <span id="current-ember-cost">10</span></h5>
+                        </div>
                     </div>
                 </div>
             </div>
