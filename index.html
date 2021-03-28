@@ -27,17 +27,30 @@
     <!-- //NOTE main container -->
     <main class="container-fluid ">
         <!-- NOTE this is the top part with the button -->
-        <div class="row flex-column my-min-h pt-5">
+        <div class="row my-min-h pt-5">
 
             <div class="col d-flex align-items-center justify-content-center soul-text">
                 <h1>Souls: <span id=on-screen-total>0</span></h1>
             </div>
 
-            <div class="col d-flex align-items-center justify-content-center h-50">
+        </div>
+
+        <div class="row soul-text">
+            <div class="col-4 d-flex justify-content-center flex-column p-5">
+                <h3>Enemies Killed: <span id="enemies-killed"></span>/<span id="total-enemies"></span></h3>
+                <h3>Bosses Killed: <span id="bosses-killed"></span>/<span id="total-bosses"></span></h3>
+                <h3>Gems Used: <span id="gems-used"></span>/<span id="total-gems"></span></h3>
+                <h3>Titanite Used: <span id="titanite-used"></span>/<span id="total-titanite"></span></h3>
+                <h3>Embers Used: <span id="embers-used"></span>/<span id="total-embers"></span></h3>
+
+            </div>
+
+            <div class="col-4 d-flex align-items-center justify-content-center h-50">
                 <input onclick="clickAdd()" id="main-resource" type="image" src="./assets/small-soul.png">
                 </input>
             </div>
 
+        </div>
         </div>
 
 
@@ -52,7 +65,7 @@
 
             <!-- NOTE col 1 contains the enemy upgrade -->
             <div class="col d-flex justify-content-center flex-column my-gray-text">
-                <h5 id="enemy-name" class="text-center">Hollow</h5>
+                <h5 id="enemy-name" class="text-center"></h5>
                 <img id="enemy-img" class="img-fluid w-50 mx-auto" src="" alt="Normal Enemy Image">
                 <h5 class="text-center"><u>Soul Value</u></h5>
                 <div class="row flex-column">
@@ -108,7 +121,7 @@
                         <h5 id='soap-title'>White Sign Soapstone</h5>
                         <img class="w-50 py-3" src="./assets/WhiteStone.png" alt="soapstone">
                         <div id="clearsoap">
-                            <h5>Reduce Boss Cost by 10%</h5>
+                            <h5>Reduce Boss Cost 10%</h5>
                             <button onclick="purchase('soap')" class="my-btn">
                                 <h3>SUMMON</h3>
                             </button>
