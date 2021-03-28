@@ -11,10 +11,18 @@ let greatswordCost = 10
 let greatswordMult = 2
 let previousClickValue = 0
 
+
 let titaniteCost = 10
 
+let soapCost = 10
+let usedSoap = false
+let bossRemoved = false
 
-//NOTE we need to fix it to where when it gets to the last enemy or boss it doesnt break
+let seconds = 10
+let emberCost = 10
+
+let bossInfo = document.getElementById('clearboss')
+
 let normalEnemies = [
     {
         name: "Hollow",
@@ -150,6 +158,7 @@ function upgrade(id) {
             total = total - autoUpgradeCost
             currentAutoValue = currentAutoValue * 3
             autoUpgradeCost = autoUpgradeCost * 3
+            usedSoap = false
             drawBoss()
         }
         if (total >= autoUpgradeCost && currentBoss >= 18) {
@@ -187,6 +196,23 @@ function purchase(id) {
 
         }
     }
+    if (id === "soap") {
+        if (total >= soapCost && bossRemoved == false && usedSoap == false) {
+            autoUpgradeCost = Math.floor(autoUpgradeCost * 0.9)
+            soapCost = soapCost * 2
+            drawBoss()
+            usedSoap = true
+
+        }
+    }
+    if (id === "ember") {
+        if (total >= emberCost && seconds > 1) {
+            seconds -= 1
+            total = total - emberCost
+            drawEmber()
+
+        }
+    }
 
     drawTotal()
 
@@ -195,12 +221,12 @@ function purchase(id) {
 
 
 
-
+// NOTE YO you need to fix the ember, it doesnt do interval stuff
 
 startInterval()
 
 function startInterval() {
-    setInterval(AutoAdd, 3000);
+    setInterval(AutoAdd, (seconds * 1000));
 }
 
 function drawTotal() {
@@ -230,11 +256,15 @@ function drawTitanite() {
     document.getElementById("soul-value-mult").innerText = greatswordMult.toString()
 }
 
+function drawEmber() {
+    document.getElementById('current-ember-cost').innerText = emberCost.toString()
+    document.getElementById('seconds').innerText = seconds.toString()
+}
 
-let el = document.getElementById('clearboss');
 
 function clearBoss() {
-    el.remove()
+    bossInfo.remove()
+    bossRemoved = true
 }
 
 drawBoss()

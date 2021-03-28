@@ -99,8 +99,8 @@
                     <div class="col d-flex align-items-center flex-column p-5 text-center mt-auto">
                         <h5><u>White Sign Soapstone</u></h5>
                         <img class="w-50 py-3" src="./assets/WhiteStone.png" alt="soapstone">
-                        <h5>Reduce Boss Cost by 5%.</h5>
-                        <button onclick="purchase('bonfire')" class="my-btn">
+                        <h5>Reduce Boss Cost by 10%.</h5>
+                        <button onclick="purchase('soap')" class="my-btn">
                             <h3>SUMMON</h3>
                         </button>
                         <h5>Cost: <span id="current-soapstone-cost">10</span></h5>
@@ -127,7 +127,7 @@
                 <h5 class="text-center"><u>Soul Value</u></h5>
                 <div class="row flex-column">
                     <div class="col d-flex justify-content-center">
-                        <h5><span id="auto-value">0</span> Per 3 Seconds</h5>
+                        <h5><span id="auto-value">0</span> Per <span id=seconds>10</span> Seconds</h5>
                     </div>
                     <div id="clearboss" class="col d-flex justify-content-center align-items-center">
                         <button onclick="upgrade('auto-click')" class="my-btn">
