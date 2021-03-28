@@ -7,21 +7,27 @@ let currentBoss = 0
 let currentEnemy = 0
 
 
-let greatswordCost = 10
-let greatswordMult = 2
+let gemCost = 10
+let gemMult = 2
 
 let currentGem = 0
+let gemRemoved = false
+let gemInfo = document.getElementById('cleargem')
+
 
 let titaniteCost = 10
 
 let soapCost = 10
 let usedSoap = false
+let soapInfo = document.getElementById('clearsoap')
+
+
 let bossRemoved = false
+let bossInfo = document.getElementById('clearboss')
 
 let seconds = 10
 let emberCost = 10
 
-let bossInfo = document.getElementById('clearboss')
 
 let normalEnemies = [
     {
@@ -67,7 +73,7 @@ let bosses = [
         img: "high_lord_wolnir_trophy.png"
     },
     {
-        name: "Old_Demon_King",
+        name: "Old Demon King",
         img: "old_demon_king_trophy.png"
     },
     {
@@ -181,6 +187,10 @@ let gems = [
     {
         name: 'Chaos Gem',
         img: 'chaos_gem-icon.png'
+    },
+    {
+        name: 'All Gems Used',
+        img: 'chaos_gem-icon.png'
     }
 
 ]
@@ -224,10 +234,12 @@ function upgrade(id) {
             usedSoap = false
             drawBoss()
         }
-        if (total >= autoUpgradeCost && currentBoss >= 18) {
+        if (total >= autoUpgradeCost && currentBoss >= bosses.length - 1) {
             currentAutoValue = 1000000000
             drawBoss()
+
             clearBoss()
+            clearSoap()
         }
     }
 
@@ -236,23 +248,28 @@ function upgrade(id) {
 }
 
 function purchase(id) {
-    if (id === "moonlight-greatsword") {
+    if (id === "gem") {
 
-        if (total >= greatswordCost) {
+        if (total >= gemCost && currentGem < (gems.length)) {
             currentGem += 1
 
-            currentClickValue = currentClickValue * greatswordMult
+            currentClickValue = currentClickValue * gemMult
 
-            total = total - greatswordCost
-            greatswordCost = greatswordCost * 2
+            total = total - gemCost
+            gemCost = gemCost * 2
 
-            drawGreatsword()
+            drawGem()
             drawEnemy()
+        }
+        if (total >= gemCost && currentGem >= gems.length - 1) {
+            currentClickValue = currentClickValue * gemMult
+            drawGem()
+            clearGem()
         }
     }
     if (id === "titanite") {
         if (total >= titaniteCost) {
-            greatswordMult += 1
+            gemMult += 1
             titaniteCost = titaniteCost * 2
             drawTitanite()
 
@@ -260,9 +277,12 @@ function purchase(id) {
     }
     if (id === "soap") {
         if (total >= soapCost && bossRemoved == false && usedSoap == false) {
+            total = total - soapCost
             autoUpgradeCost = Math.floor(autoUpgradeCost * 0.9)
             soapCost = soapCost * 2
             drawBoss()
+            drawSoap()
+            drawTotal()
             usedSoap = true
 
         }
@@ -284,9 +304,6 @@ function purchase(id) {
 }
 
 
-
-
-// NOTE YO you need to fix the ember, it doesnt do interval stuff
 
 
 let myInterval
@@ -315,15 +332,15 @@ function drawBoss() {
     document.getElementById("boss-img").src = `./assets/${bosses[currentBoss].img}`
 }
 
-function drawGreatsword() {
-    document.getElementById("current-greatsword-cost").innerText = greatswordCost.toString()
+function drawGem() {
+    document.getElementById("current-gem-cost").innerText = gemCost.toString()
     document.getElementById("gem-img").src = `./assets/${gems[currentGem].img}`
     document.getElementById("current-gem").innerText = gems[currentGem].name
 }
 
 function drawTitanite() {
     document.getElementById("current-titanite-cost").innerText = titaniteCost.toString()
-    document.getElementById("soul-value-mult").innerText = greatswordMult.toString()
+    document.getElementById("soul-value-mult").innerText = gemMult.toString()
 }
 
 function drawEmber() {
@@ -331,13 +348,31 @@ function drawEmber() {
     document.getElementById('seconds').innerText = seconds.toString()
 }
 
+function drawSoap() {
+    document.getElementById('current-soapstone-cost').innerText = soapCost.toString()
+
+}
+
+function clearSoap() {
+    soapInfo.remove()
+    document.getElementById('soap-title').innerText = 'All Bosses Vanquished'
+}
+
+clearGem(){
+
+}
+
 
 function clearBoss() {
     bossInfo.remove()
     bossRemoved = true
 }
+function clearGem() {
+    gemInfo.remove()
+    gemRemoved = true
+}
 
 drawBoss()
 drawEnemy()
 drawTotal()
-drawGreatsword()
+drawGem()
