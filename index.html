@@ -75,18 +75,21 @@
                     <div class="col d-flex align-items-center flex-column p-5 text-center mt-auto">
                         <h5 id="current-gem"></h5>
                         <img id="gem-img" class="w-50 py-3" src="" alt="Gem">
-                        <h5>Soul Value Per Click ×<span id="soul-value-mult">2</span></h5>
-                        <button onclick="purchase('moonlight-greatsword')" class="my-btn">
-                            <h4 id="equip-button">INFUSE</h4>
-                        </button>
-                        <h5>Cost: <span id="current-greatsword-cost">10</span></h5>
+                        <div id="cleargem">
+
+                            <h5>Soul Value Per Click ×<span id="soul-value-mult">2</span></h5>
+                            <button onclick="purchase('gem')" class="my-btn">
+                                <h4 id="equip-button">INFUSE</h4>
+                            </button>
+                            <h5>Cost: <span id="current-gem-cost">10</span></h5>
+                        </div>
                     </div>
 
 
                     <div class="col d-flex align-items-center flex-column p-5 text-center mt-auto">
                         <h5>Twinkling Titanite</h5>
                         <img class="w-50 py-3" src="./assets/twinkling_titanite.png" alt="Twinkling Titanite">
-                        <h5>Upgrade Moonlight Greatsword Multiplier</h5>
+                        <h5>Upgrade Gem Multiplier</h5>
                         <button onclick="purchase('titanite')" class="my-btn">
                             <h3>FORGE</h3>
                         </button>
@@ -97,13 +100,15 @@
                 </div>
                 <div class="row">
                     <div class="col d-flex align-items-center flex-column p-5 text-center mt-auto">
-                        <h5>White Sign Soapstone</h5>
+                        <h5 id='soap-title'>White Sign Soapstone</h5>
                         <img class="w-50 py-3" src="./assets/WhiteStone.png" alt="soapstone">
-                        <h5>Reduce Boss Cost by 10%</h5>
-                        <button onclick="purchase('soap')" class="my-btn">
-                            <h3>SUMMON</h3>
-                        </button>
-                        <h5>Cost: <span id="current-soapstone-cost">10</span></h5>
+                        <div id="clearsoap">
+                            <h5>Reduce Boss Cost by 10%</h5>
+                            <button onclick="purchase('soap')" class="my-btn">
+                                <h3>SUMMON</h3>
+                            </button>
+                            <h5>Cost: <span id="current-soapstone-cost">10</span></h5>
+                        </div>
 
 
                     </div>
