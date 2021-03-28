@@ -1,24 +1,37 @@
-let total = 100000000000000
+let total = 0
+let gemCost = 250
+let titaniteCost = 200
+let emberCost = 250
+let clickValueUpgradeCost = 10
+let autoUpgradeCost = 500
+let soapCost = 50
+
+let myInterval
+
 let currentClickValue = 1
 let currentAutoValue = 0
-let clickValueUpgradeCost = 10
-let autoUpgradeCost = 10
+
+
 let currentBoss = 0
 let currentEnemy = 0
 let enemyInfo = document.getElementById('clear-enemy')
 
-let gemCost = 10
+let emberUsed = 0
+let titaniteUsed = 0
+
+
+
 let gemMult = 2
 
 let currentGem = 0
 let gemInfo = document.getElementById('cleargem')
 
 
-let titaniteCost = 10
+
 let titaniteInfo = document.getElementById('cleartitanite')
 let usedAllTitanite = false
 
-let soapCost = 10
+
 let usedSoap = false
 let soapInfo = document.getElementById('clearsoap')
 
@@ -27,10 +40,10 @@ let bossRemoved = false
 let bossInfo = document.getElementById('clearboss')
 
 let seconds = 10
-let emberCost = 10
+
 let emberInfo = document.getElementById('clear-ember')
 
-let normalEnemies2 = [
+let normalEnemies = [
     {
         name: "Grave Warden",
         img: "grave_warden-new.jpg"
@@ -158,25 +171,6 @@ let normalEnemies2 = [
     }
 ]
 
-let normalEnemies = [
-    {
-        name: "Grave Warden",
-        img: "grave_warden-new.jpg"
-    },
-    {
-        name: "Hollow",
-        img: "hollow.jpg"
-    },
-    {
-        name: "Hollow Assassin",
-        img: "hollow_assassin-new.jpg"
-    },
-
-    {
-        name: "All Enemies Defeated",
-        img: "finalenemypic.png"
-    }
-]
 
 let bosses = [
     {
@@ -382,6 +376,7 @@ function upgrade(id) {
 
 
     drawTotal()
+    drawScores()
 }
 
 function purchase(id) {
@@ -413,11 +408,13 @@ function purchase(id) {
     if (id === "titanite") {
         if (total >= titaniteCost) {
             if (gemMult < 9) {
+                titaniteUsed += 1
                 gemMult += 1
                 titaniteCost = titaniteCost * 2
                 drawTitanite()
             } else {
                 gemMult = 10
+                titaniteUsed += 1
                 drawTitanite()
                 usedAllTitanite = true
                 clearTitanite()
@@ -438,6 +435,7 @@ function purchase(id) {
     }
     if (id === "ember") {
         if (total >= emberCost && seconds > 1) {
+            emberUsed += 1
             seconds -= 1
             total = total - emberCost
             emberCost = emberCost * 2
@@ -452,13 +450,14 @@ function purchase(id) {
     }
 
     drawTotal()
+    drawScores()
 
 }
 
 
 
 
-let myInterval
+
 function startInterval() {
     myInterval = setInterval(AutoAdd, (seconds * 1000));
 }
@@ -469,8 +468,10 @@ function stopInterval() {
 
 function drawTotal() {
     document.getElementById("on-screen-total").innerText = total.toString()
-}
 
+
+
+}
 function drawEnemy() {
     document.getElementById("click-upgrade-cost").innerText = clickValueUpgradeCost.toString()
     document.getElementById("enemy-name").innerText = normalEnemies[currentEnemy].name
@@ -479,40 +480,54 @@ function drawEnemy() {
 function drawClickValue() {
     document.getElementById("click-value").innerText = currentClickValue.toString()
 }
-
 function drawBoss() {
     document.getElementById("auto-value").innerText = currentAutoValue.toString()
     document.getElementById("auto-upgrade-cost").innerText = autoUpgradeCost.toString()
     document.getElementById("boss-name").innerText = bosses[currentBoss].name
     document.getElementById("boss-img").src = `./assets/${bosses[currentBoss].img}`
 }
-
 function drawGem() {
     document.getElementById("current-gem-cost").innerText = gemCost.toString()
     document.getElementById("gem-img").src = `./assets/${gems[currentGem].img}`
     document.getElementById("current-gem").innerText = gems[currentGem].name
 }
-
 function drawTitanite() {
     document.getElementById("current-titanite-cost").innerText = titaniteCost.toString()
     document.getElementById("soul-value-mult").innerText = gemMult.toString()
 }
-
 function drawEmber() {
     document.getElementById('current-ember-cost').innerText = emberCost.toString()
     document.getElementById('seconds').innerText = seconds.toString()
 }
+function drawScores() {
+    document.getElementById('enemies-killed').innerText = currentEnemy.toString()
+    document.getElementById('total-enemies').innerText = (normalEnemies.length - 1).toString()
 
+    document.getElementById('bosses-killed').innerText = currentBoss.toString()
+    document.getElementById('total-bosses').innerText = (bosses.length - 1).toString()
+
+    document.getElementById('gems-used').innerText = currentGem.toString()
+    document.getElementById('total-gems').innerText = (gems.length - 1).toString()
+
+    document.getElementById('titanite-used').innerText = titaniteUsed.toString()
+    document.getElementById('total-titanite').innerText = '8'
+
+    document.getElementById('embers-used').innerText = emberUsed.toString()
+    document.getElementById('total-embers').innerText = '9'
+
+}
 function drawSoap() {
     document.getElementById('current-soapstone-cost').innerText = soapCost.toString()
 
 }
 
+
+
+
 function clearSoap() {
     soapInfo.remove()
     document.getElementById('soap-title').innerText = 'All Bosses Vanquished'
 }
-
 function clearTitanite() {
     titaniteInfo.remove()
     if (usedAllTitanite) {
@@ -522,7 +537,6 @@ function clearTitanite() {
         document.getElementById('titanite-title').innerText = 'No Gems to Upgrade'
     }
 }
-
 function clearBoss() {
     bossInfo.remove()
     bossRemoved = true
@@ -543,3 +557,9 @@ drawBoss()
 drawEnemy()
 drawTotal()
 drawGem()
+drawScores()
+drawSoap()
+drawTitanite()
+drawEmber()
+drawClickValue()
+

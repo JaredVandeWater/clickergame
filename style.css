@@ -77,7 +77,13 @@ text-shadow: 0 0 15px rgba(255, 255, 255, 0.5), 0 0 10px rgba(113, 246, 255, 0.5
 
 }
 
+
+.my-opacity{
+    opacity: 0.2;
+}
+
 .my-btn {
+
     padding-left: 1rem;
     padding-right: 1rem;
   background: #f7a934;
