@@ -1,10 +1,20 @@
-let total = 0
+let total = 100000000000000
 let currentClickValue = 1
 let currentAutoValue = 0
 let clickValueUpgradeCost = 10
 let autoUpgradeCost = 10
 let currentBoss = 0
+let currentEnemy = 0
 
+
+let greatswordCost = 10
+let greatswordMult = 2
+let previousClickValue = 0
+
+let titaniteCost = 10
+
+
+//NOTE we need to fix it to where when it gets to the last enemy or boss it doesnt break
 let normalEnemies = [
     {
         name: "Hollow",
@@ -103,7 +113,10 @@ let bosses = [
 function clickAdd() {
     total += currentClickValue
     drawTotal()
+
 }
+
+
 
 function AutoAdd() {
     total += currentAutoValue
@@ -117,6 +130,7 @@ function upgrade(id) {
 
             total = total - clickValueUpgradeCost
             currentClickValue += 1
+            currentEnemy += 1
             clickValueUpgradeCost = clickValueUpgradeCost * 2
         }
     }
@@ -141,10 +155,30 @@ function upgrade(id) {
 function purchase(id) {
     if (id === "moonlight-greatsword") {
 
+        if (total >= greatswordCost) {
+
+            previousClickValue = currentClickValue
+
+            currentClickValue = currentClickValue * greatswordMult
+
+            total = total - greatswordCost
+            greatswordCost = greatswordCost * 2
+
+            drawGreatsword()
+            drawEnemy()
+        }
     }
     if (id === "titanite") {
+        if (total >= titaniteCost) {
+            greatswordMult += 1
+            titaniteCost = titaniteCost * 2
+            drawTitanite()
 
+        }
     }
+
+    drawTotal()
+
 }
 
 
@@ -165,8 +199,8 @@ function drawTotal() {
 function drawEnemy() {
     document.getElementById("click-value").innerText = currentClickValue.toString()
     document.getElementById("click-upgrade-cost").innerText = clickValueUpgradeCost.toString()
-    document.getElementById("enemy-name").innerText = normalEnemies[currentClickValue - 1].name
-    document.getElementById("enemy-img").src = `./assets/${normalEnemies[currentClickValue - 1].img}`
+    document.getElementById("enemy-name").innerText = normalEnemies[currentEnemy].name
+    document.getElementById("enemy-img").src = `./assets/${normalEnemies[currentEnemy].img}`
 }
 function drawBoss() {
     document.getElementById("auto-value").innerText = currentAutoValue.toString()
@@ -175,5 +209,17 @@ function drawBoss() {
     document.getElementById("boss-img").src = `./assets/${bosses[currentBoss].img}`
 }
 
+function drawGreatsword() {
+    document.getElementById("equip-button").innerText = "REPAIR"
+    document.getElementById("current-greatsword-cost").innerText = greatswordCost.toString()
+}
+
+function drawTitanite() {
+    document.getElementById("current-titanite-cost").innerText = titaniteCost.toString()
+    document.getElementById("soul-value-mult").innerText = greatswordMult.toString()
+}
+
+
 drawBoss()
 drawEnemy()
+drawTotal()

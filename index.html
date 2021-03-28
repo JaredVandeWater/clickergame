@@ -27,13 +27,13 @@
     <!-- //NOTE main container -->
     <main class="container-fluid ">
         <!-- NOTE this is the top part with the button -->
-        <div class="row flex-column my-min-h">
+        <div class="row flex-column my-min-h pt-5">
 
             <div class="col d-flex align-items-center justify-content-center soul-text">
                 <h1>Souls: <span id=on-screen-total>0</span></h1>
             </div>
 
-            <div class="col d-flex align-items-center justify-content-center">
+            <div class="col d-flex align-items-center justify-content-center h-50">
                 <input onclick="clickAdd()" id="main-resource" type="image" src="./assets/small-soul.png">
                 </input>
             </div>
@@ -43,8 +43,8 @@
 
 
         <!-- NOTE the upgrades bar -->
-        <div class="my-b-border row text-center  justify-content-center">
-            <h2> UPGRADES </h2>
+        <div class=" row text-center  justify-content-center pb-2 pt-5">
+            <h2 class="soul-text"><u>UPGRADES</u></h2>
         </div>
 
 
@@ -60,7 +60,7 @@
                         <p><span id="click-value">1</span> Per Click</p>
                     </div>
                     <div class="col d-flex justify-content-center align-items-center">
-                        <button onclick="upgrade('click-value')" class="my-btn">
+                        <button id="defeat" onclick="upgrade('click-value')" class="my-btn">
                             <h4>DEFEAT</h4>
                         </button>
                         <p class=" p-3 my-auto">Cost: <span id=click-upgrade-cost>10</span></p>
@@ -72,50 +72,51 @@
             <!-- NOTE col2 contains upgrade for weapons -->
             <div class="col-5 d-flex justify-content-center flex-column my-green-text">
                 <div class="row">
-                    <div class="col d-flex align-items-center flex-column">
-                        <p>Moonlight Greatsword</p>
-                        <img class="w-25" src="./assets/moonlight_greatsword-icon.png" alt="Moonlight Greatsword">
+                    <div class="col d-flex align-items-center flex-column p-5 text-center mt-auto">
+                        <p><u>Moonlight Greatsword</u></p>
+                        <img class="w-50 py-3" src="./assets/moonlight_greatsword-icon.png" alt="Moonlight Greatsword">
                         <p>Soul Value Per Click ×<span id="soul-value-mult">2</span>.</p>
                         <button onclick="purchase('moonlight-greatsword')" class="my-btn">
-                            <h4>EQUIP</h4>
-
+                            <h4 id="equip-button">EQUIP</h4>
                         </button>
-                        <p>Cost: 10</p>
+                        <p>Cost: <span id="current-greatsword-cost">10</span></p>
                     </div>
-                    <div class="col d-flex align-items-center flex-column">
-                        <p>Twinkling Titanite</p>
-                        <img class="w-25" src="./assets/twinkling_titanite.png" alt="Twinkling Titanite">
+
+
+                    <div class="col d-flex align-items-center flex-column p-5 text-center mt-auto">
+                        <p><u>Twinkling Titanite</u></p>
+                        <img class="w-50 py-3" src="./assets/twinkling_titanite.png" alt="Twinkling Titanite">
                         <p>Upgrade Moonlight Greatsword Multiplier.</p>
                         <button onclick="purchase('titanite')" class="my-btn">
                             <h4>FORGE</h4>
                         </button>
-                        <p>Cost: 10</p>
-
+                        <p>Cost: <span id="current-titanite-cost">10</span></p>
                     </div>
+
+
                 </div>
                 <div class="row">
-                    <div class="col d-flex align-items-center flex-column">
-                        <p>White Sign Soapstone</p>
-                        <img class="w-25" src="./assets/WhiteStone.png" alt="soapstone">
+                    <div class="col d-flex align-items-center flex-column p-5 text-center mt-auto">
+                        <p><u>White Sign Soapstone</u></p>
+                        <img class="w-50 py-3" src="./assets/WhiteStone.png" alt="soapstone">
                         <p>Reduce Boss Cost by 5%.</p>
                         <button onclick="purchase('bonfire')" class="my-btn">
                             <h4>SUMMON</h4>
                         </button>
-                        <p>Cost:10</p>
+                        <p>Cost: <span id="current-soapstone-cost">10</span></p>
+
 
                     </div>
-                    <div class="col d-flex align-items-center flex-column">
-                        <p>Ember</p>
-                        <img class="w-25" src="./assets/ember.png" alt="Ember">
+                    <div class="col d-flex align-items-center flex-column p-5 text-center mt-auto">
+                        <p><u>Ember</u></p>
+                        <img class="w-50 py-3" src="./assets/ember.png" alt="Ember">
                         <p>Decrease boss soul wait time.<span id="soul-value-mult">2</span> </p>
-                        <a onclick="purchase('ember')" class="my-btn">
+                        <button onclick="purchase('ember')" class="my-btn">
                             <h4>BURN</h4>
-                        </a>
-
+                        </button>
+                        <p>Cost: <span id="current-ember-cost">10</span></p>
                     </div>
                 </div>
-
-
             </div>
 
 
@@ -128,7 +129,7 @@
                     <div class="col d-flex justify-content-center">
                         <p><span id="auto-value">0</span> Per 3 Seconds</p>
                     </div>
-                    <div class="col d-flex justify-content-center">
+                    <div class="col d-flex justify-content-center align-items-center">
                         <button onclick="upgrade('auto-click')" class="my-btn">
                             <h4>VANQUISH</h4>
                         </button>
